@@ -27,7 +27,7 @@ es: e { return { ast: buildRoot($e) }; }
 ;
 
 e: /* complete the grammar */
-   /* ... */   
+   /* ... comma, assignment, ids, prints ... */   
   | e '@' e             { $$ = buildMax($e1, $e2); }
   | e '&' e             { $$ = buildMin($e1, $e2); }
 
