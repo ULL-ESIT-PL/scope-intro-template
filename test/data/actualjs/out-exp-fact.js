@@ -13,4 +13,4 @@ const factorial = function(num) {
   }
   return Complex({re: result.re, im: num.im});
 };
-print(factorial(Complex("3")).sub(Complex("1")));
+print(Complex("2").pow(factorial(Complex("3"))));

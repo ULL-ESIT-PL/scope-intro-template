@@ -1,13 +1,13 @@
 %{
 const reservedWords = ["print","i"]  
 
-const idOrReserved = text => { /* complete this function */  }
+const idOrReserved = text => {/* fill the code */  }
 %}
-number [0-9]+(\.[0-9]+)?([eE][+-]?[0-9]+)?"i"?|"i"
+number /* fill the code */
 
 %%
 \s+            /* skip whites */;
-/* complete the call to number */       return 'N';
-[a-zA-Z_]\w*   return /* complete the code */; 
+{number}       return 'N';
+[a-zA-Z_]\w*   return /* fill the code */; 
 '**'           return '**';
 [-=+*/!(),@&]  return yytext;

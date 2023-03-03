@@ -14,21 +14,19 @@ const Support = require("./support-lib.js");
 let functionNames = Object.keys(Support).map(n => n.replace(/[$*.^]/, '[$&]')) // Escape regexp special characters
 const patternIsSupport = new RegExp(functionNames.join('|'));
 
+// Detect what support functions are used: dependency analysis
 function dependencies(dAst) {
-  /* Write the code to detect which support functions are used in the program. */
-  return dAst;
+    /* fill the code here */
 }
 
 // Builds the set of variables that are initialized in the program
 const initializedVariables = (dAst) => {
-  /* Write the code to detect which variables are initialized in the program. */
-  return dAst;
+  /* fill the code here */
 };
 
 // Detects which variables are used in the program
 const usedVariables = (dAst) => {
-  /* Write the code to detect which variables are used in the program. */
-  return dAst;
+  /* fill the code here */
 };
 
 module.exports = {

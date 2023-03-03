@@ -14,7 +14,7 @@ const {
 const {$} = require('./utils.js')
 %}
 
-/* complete the precedences */
+/* add remaining precedences */
 %left '@'
 %left '&'
 %left '-' '+'
@@ -26,10 +26,10 @@ const {$} = require('./utils.js')
 es: e { return { ast: buildRoot($e) }; }
 ;
 
-e: /* complete the grammar */
-   /* ... comma, assignment, ids, prints ... */   
-  | e '@' e             { $$ = buildMax($e1, $e2); }
-  | e '&' e             { $$ = buildMin($e1, $e2); }
+e: 
+   /* rules for assignment, comma, print, ids */
+  | e '@' e             { $$ = buildMax($e1, $e2, true); }
+  | e '&' e             { $$ = buildMin($e1, $e2, true); }
 
   | e '-' e             { $$ = buildCallMemberExpression($e1, 'sub', [$e2]); }
   | e '+' e             { $$ = buildCallMemberExpression($e1, 'add', [$e2]); }
@@ -40,5 +40,5 @@ e: /* complete the grammar */
   | '-' e %prec UMINUS  { $$ = buildCallMemberExpression($e, 'neg', []); }
   | e '!'               { $$ = buildCallExpression('factorial', [$e], true); }
   | N                   { $$ = buildCallExpression('Complex',[buildLiteral($N)], true); }
-  /* ... */
+  
 ;

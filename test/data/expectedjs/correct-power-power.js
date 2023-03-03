@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const Complex = require("/Users/casianorodriguezleon/campus-virtual/2223/pl2223/practicas/drafts/scope-intro-template/src/complex.js");  
+const Complex = require("/Users/casianorodriguezleon/campus-virtual/2223/pl2223/practicas/drafts/scope-intro-solution/src/complex.js");  
 const print = x => { console.log(x); return x; };
 const factorial = function(num) {
   if (num.im !== 0) throw new Error(`Imaginary part must be zero. Instead is ${num.im}`);
@@ -13,4 +13,6 @@ const factorial = function(num) {
   }
   return Complex({re: result.re, im: num.im});
 };
-print(factorial(Complex("3")).sub(Complex("1")));
+print(
+    factorial(Complex("2")).pow(factorial(Complex("3")).pow(factorial(Complex("2"))))
+);

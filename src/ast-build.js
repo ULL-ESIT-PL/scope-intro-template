@@ -1,24 +1,12 @@
 const {$} = require('./utils.js')
 
 function buildRoot(child) {
-  return {
-    type: "Program",
-    body: [
-      {
-        type: "ExpressionStatement",
-        expression: child,
-      },
-    ],
-    sourceType: "script",
-  };
+  /* fill the code here */
 }
 
 function buildLiteral(value) {
-  return {
-    type: "Literal",
-    value: String(value),
-    raw: `"${value}"`, // Recast compatibility!! escodegen does not need the extra quotes
-  };
+  /* fill the code here */
+  // Recast compatibility!! escodegen does not need the extra quotes
 }
 
 
@@ -129,12 +117,12 @@ function buildMemberExpression(caller, names) {
   };
 }
 
-function buildMin(left, right) {
-  return buildCallExpression('min', [left, right]);
+function buildMin(left, right, reservedWord = false) {
+  return buildCallExpression('min', [left, right], reservedWord);
 }
 
-function buildMax(left, right) {
-  return buildCallExpression('max', [left, right]);
+function buildMax(left, right, reservedWord = false) {
+  return buildCallExpression('max', [left, right], reservedWord);
 }
 
 module.exports = {

@@ -13,22 +13,29 @@ module.exports = async function transpile(inputFile, outputFile) {
   try {
     ast = p.parse(input);
   } catch (e) {
-    let m = e.message.replace(/\s*'UNEXPECTED'\s*,?/, '')
+    let m = e.message
     console.error(m);
-    process.exit(1);
+    return m;
+
   }
+  //console.log(JSON.stringify(ast, null, 2))
+  //process.exit(0);
 
   ast = dependencies(ast);
   ast = initializedVariables(ast);
   ast = usedVariables(ast);
   let d = difference(ast.used, ast.symbolTable)
   if (d.size > 0) { 
-    console.error(notDeclared(d).join(''));
-    process.exit(1);
+    let m = notDeclared(d).join('');
+    console.error(m);
+    return m;
   }
+  //console.error("= AST = \n"+ deb(ast));
 
   let output = codeGen(ast);
   
-  writeCode(output, outputFile);
+  debugger;
+  await writeCode(output, outputFile);
+  return output;
 }
 

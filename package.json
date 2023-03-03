@@ -1,15 +1,15 @@
 {
   "name": "hello-jison",
   "version": "1.0.0",
-  "description": "* See section [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html) * The example working at  [http://crguezl.github.io/jison-minus/](http://crguezl.github.io/jison-minus/)",
-  "main": "src/transpile.js",
+  "description": "A simple calculator written in Jison",
   "type": "commonjs",
   "bin": {
     "calc2js": "./bin/calc2js.js"
   },
   "scripts": {
     "test": "npm run compile; mocha test/test.mjs",
-    "cov": "c8 --reporter=html --reporter=text npm run test",
+    "only-test": "mocha --inspect-brk only-test/test.js",
+    "cov": "nyc npm test",
     "test1": "npm run compile; ./bin/calc2js.mjs test/data/test1.calc ",
     "compile": "jison src/grammar.jison src/lexer.l -o src/calc.js",
     "clean": "rm -f src/calc.js; rm -fR test/data/out?.js"
@@ -28,7 +28,9 @@
     "commander": "^10.0.0",
     "complex.js": "^2.1.1",
     "jison": "^0.4.18",
-    "recast": "^0.22.0"
+    "recast": "^0.22.0",
+    "set-operations": "^2.0.2",
+    "shelljs.exec": "^1.1.8"
   },
   "devDependencies": {
     "mocha": "^10.2.0",

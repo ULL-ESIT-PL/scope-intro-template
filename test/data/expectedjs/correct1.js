@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const Complex = require("/Users/casianorodriguezleon/campus-virtual/2223/pl2223/practicas/drafts/scope-intro-solution/src/complex.js");  
+const Complex = require("/Users/casiano/campus-virtual/2223/pl2223/practicas/scope-intro/scope-intro-solution/src/complex.js");  
 const print = x => { console.log(x); return x; };
 const factorial = function(num) {
   if (num.im !== 0) throw new Error(`Imaginary part must be zero. Instead is ${num.im}`);

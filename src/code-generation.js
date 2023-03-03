@@ -5,8 +5,11 @@ const template = (name, fun) => `const ${name} = ${fun.toString()};\n`;
 const path = require('path');
 
 function buildSupportCode(dependencies) {
-  /* Returns the code for the support functions used in the program. */
-  /* fill the code */
+  let code = '';
+  for (let name of dependencies) {
+    code += template(name, Support[name]);
+  }
+  //console.error('code:', code)
   return code;
 }
 
