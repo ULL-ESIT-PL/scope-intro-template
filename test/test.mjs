@@ -32,7 +32,7 @@ function removeSpaces(s) {
 }
 
 function removeFolderDependency(s) {
-  return s.replace(/const.*Complex.*require.*complex.js".*/i, '')
+  return s.replace(/const.*?Complex.*?require.*?complex.js".;/, '')
 }
 
 
